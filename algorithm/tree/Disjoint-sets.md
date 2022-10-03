@@ -59,7 +59,9 @@
   - 위 그림에서 다음의 코드를 통해 4, 5 를 합친다고 하면 
 
     ```python
-    # Union
+    x_root, y_root = find_set(x), find_set(y)  # Find
+    
+        # Union
         if x_root != y_root:  # 서로소 집합인 경우만 합집합 연산
             if x_root < y_root:
                 parent[y_root] = x_root
