@@ -69,3 +69,27 @@
   - 각 app 폴더 안에 urls.py를 작성하고 관리할 수 있다
 
   
+
+### Naming URL patterns
+
+`path('greeting/', views.greeting, name='greeting')`
+
+- `path()` 함수의 name인자를 정의해서 사용
+- DTL의 Tag 중 하나인 URL 태그를 사용해서 `path()`함수의 name을 사용할 수 있음
+  - `{% url 'greeting' %}`
+
+
+
+### URL namespace
+
+```python
+# articles/urls.py
+
+app_name = 'articles'
+urlpatterns = [
+    ...,
+]
+```
+
+- 다른 앱에서 동일한 URL 이름을 사용하는 경우에도 사용가능
+- `{% url 'greeting' %}` -> `{% url 'articles:greeting' %}`

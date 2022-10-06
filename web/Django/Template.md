@@ -97,7 +97,38 @@
    ]
    ```
 
-   
+
+
+
+### Template namespace
+
+- Django는 기본적으로 app_name/templates/ 경로에 있는 templates 파일들만 찾을 수 있다.
+
+- settings.py의 INSTALLED_APPS에 작성한 app 순서로 template를 검색 후 렌더링 함
+
+- (바로 위 에서도 확인 할 수 있듯이) `'APP_DIRS': True,` 이 속성 값이 해당 경로를 활성화
+
+- 디렉토리 생성을 통해 물리적인 이름공간 구분
+
+  ```
+  articles/
+  	templates/
+  		articles/
+  			index.html
+  			...
+  ```
+
+- 이후에 해당하는 모든 부분을 수정하기
+
+  ```python
+  # articles/views.py
+  
+  return render(request, 'articles/index.html')
+  ```
+
+- 단일앱의 경우 필요 없겠지만 앱이 많아지면 같은 이름의 템플레이트는 존재할 확률이 높아서 이런 작업이 필요하다.
+
+
 
 ### form
 
